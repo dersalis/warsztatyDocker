@@ -1,30 +1,12 @@
-# # Stage 1
-# FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
-# WORKDIR /build
-# COPY . .
-# RUN dotnet restore
-# RUN dotnet publish -c Release -o /app
-
-# # Stage 2
-# FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS final
-# WORKDIR /app
-# COPY --from=build /app .
-# ENTRYPOINT ["dotnet", "Core3Api.dll"]
-
-
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
-WORKDIR /app
-
-# Copy csproj and restore as distinct layers
-COPY *.csproj .
-RUN dotnet restore
-
-# Copy everything else and build
+# Stage 1
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
+WORKDIR /build
 COPY . .
-RUN dotnet publish -c Release -o out
+RUN dotnet restore
+RUN dotnet publish -c Release -o /app
 
-# Build runtime image
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+# Stage 2
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS final
 WORKDIR /app
-COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "aspnetcoreapp.dll"]
+COPY --from=build /app .
+ENTRYPOINT ["dotnet", "SmartTasks.dll"]
