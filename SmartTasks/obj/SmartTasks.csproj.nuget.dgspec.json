@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/damianruta/WORKSPACE/EXER/warsztatyDocker/SmartTasks/SmartTasks.csproj": {}
+    "/Users/damianruta/WORKSPACE/PROJECTS/warsztatyDocker/SmartTasks/SmartTasks.csproj": {}
   },
   "projects": {
-    "/Users/damianruta/WORKSPACE/EXER/warsztatyDocker/SmartTasks/SmartTasks.csproj": {
+    "/Users/damianruta/WORKSPACE/PROJECTS/warsztatyDocker/SmartTasks/SmartTasks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/damianruta/WORKSPACE/EXER/warsztatyDocker/SmartTasks/SmartTasks.csproj",
+        "projectUniqueName": "/Users/damianruta/WORKSPACE/PROJECTS/warsztatyDocker/SmartTasks/SmartTasks.csproj",
         "projectName": "SmartTasks",
-        "projectPath": "/Users/damianruta/WORKSPACE/EXER/warsztatyDocker/SmartTasks/SmartTasks.csproj",
+        "projectPath": "/Users/damianruta/WORKSPACE/PROJECTS/warsztatyDocker/SmartTasks/SmartTasks.csproj",
         "packagesPath": "/Users/damianruta/.nuget/packages/",
-        "outputPath": "/Users/damianruta/WORKSPACE/EXER/warsztatyDocker/SmartTasks/obj/",
+        "outputPath": "/Users/damianruta/WORKSPACE/PROJECTS/warsztatyDocker/SmartTasks/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
         }
       }
     }

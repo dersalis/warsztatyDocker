@@ -14,7 +14,7 @@ namespace SmartTasks.Controllers
     [ApiController]
     public class TasksController : ControllerBase
     {
-        private List<SmartTask> _tasks = new List<SmartTask>(){
+        private static List<SmartTask> _tasks = new List<SmartTask>(){
             new SmartTask{
                 Id = 0,
                 Name = "Mycie samochodu",
@@ -23,7 +23,7 @@ namespace SmartTasks.Controllers
                 IsFinish = true
             },
             new SmartTask{
-                Id = 0,
+                Id = 1,
                 Name = "Malowanie ścian",
                 CreateDate = DateTime.Now.AddDays(-9),
                 FinishDate = null,
@@ -32,12 +32,30 @@ namespace SmartTasks.Controllers
         };
 
 
-        [HttpGet("Get")]
+        [HttpPost("[action]")]
         //[EnableCors("SmartTasksPolicy")]
-        public IActionResult Get()
+        public IActionResult GetAll()
         {
             var result = _tasks;
             return new JsonResult(result);
+            //return new JsonResult(result, new JsonSerializerSettings(){ Formatting = Formatting.Indented });
+        }
+
+        [HttpPost("[action]")]
+        public IActionResult GetById(int id)
+        {
+            var result = _tasks.Where(t => t.Id == id);
+            if(result == null) return NotFound("Nie znaleziono elementu");
+            return new JsonResult(result);
+            //return new JsonResult(result, new JsonSerializerSettings(){ Formatting = Formatting.Indented });
+        }
+
+        [HttpPost("[action]")]
+        public IActionResult Add([FromForm] SmartTask task)
+        {
+            if(task == null) return BadRequest();
+            _tasks.Add(task);
+            return Ok();
         }
     }
 }
