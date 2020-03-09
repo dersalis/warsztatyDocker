@@ -265,11 +265,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/damianruta/WORKSPACE/EXER/warsztatyDocker/SmartTasks/SmartTasks.csproj",
+      "projectUniqueName": "/Users/damianruta/WORKSPACE/EXER/warsztatyDocker/SmartTasks.FULL/Backend/SmartTasks.csproj",
       "projectName": "SmartTasks",
-      "projectPath": "/Users/damianruta/WORKSPACE/EXER/warsztatyDocker/SmartTasks/SmartTasks.csproj",
+      "projectPath": "/Users/damianruta/WORKSPACE/EXER/warsztatyDocker/SmartTasks.FULL/Backend/SmartTasks.csproj",
       "packagesPath": "/Users/damianruta/.nuget/packages/",
-      "outputPath": "/Users/damianruta/WORKSPACE/EXER/warsztatyDocker/SmartTasks/obj/",
+      "outputPath": "/Users/damianruta/WORKSPACE/EXER/warsztatyDocker/SmartTasks.FULL/Backend/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

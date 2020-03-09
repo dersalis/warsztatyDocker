@@ -1,0 +1,55 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <div>
+    <h2>Moje zadania</h2>
+    <div>
+      <h4 style="margin-top: 40px;">Nowe zadanie</h4>
+
+      <!-- <form> -->
+        <div class="form-group">
+          <label for="name">Nazwa zadania</label>
+          <input [(ngModel)]="newTask.name" type="text" class="form-control" id="name" aria-describedby="textHelp">
+        </div>
+        <div class="form-group">
+          <label for="description">Opis zadania</label>
+          <input [(ngModel)]="newTask.descryption" type="text" class="form-control" id="description" aria-describedby="textHelp">
+        </div>
+        <button (click)="addTask()" class="btn btn-primary">Dodaj zadanie</button>
+      <!-- </form> -->
+
+    </div>
+
+    <div>
+      <h4 style="margin-top: 60px;">Lista zadań <span class="badge badge-info">{{taskList.length}}</span></h4>
+
+      <div class="list-group">
+        <a *ngFor="let item of taskList" href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{item.name}}</h5>
+            <a *ngIf="item.status == 0" (click)="changeStatus(item)" class="badge badge-danger" style="width: 100px;height: 19px;">
+              Oczekujące
+            </a>
+            <a *ngIf="item.status == 1" (click)="changeStatus(item)" class="badge badge-primary" style="width: 100px;height: 19px;">
+              Wykonywane
+            </a>
+            <a *ngIf="item.status == 2" (click)="changeStatus(item)" class="badge badge-success" style="width: 100px;height: 19px;">
+              Gotowe
+            </a>
+          </div>
+          <p class="mb-1">{{item.descryption}}</p>
+          <div class="d-flex w-100 justify-content-between">
+            <small style="color: rgb(179, 179, 179);">{{item.finishDate | date: 'yyyy.MM.dd'}}</small>
+            <button (click)="removeTask(item)" type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<router-outlet></router-outlet>
