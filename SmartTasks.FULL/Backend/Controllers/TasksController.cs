@@ -45,6 +45,7 @@ namespace SmartTasks.Controllers
         };
 
 
+        [EnableCors] 
         [HttpGet("[action]")]
         public IActionResult GetAll()
         {
@@ -52,6 +53,7 @@ namespace SmartTasks.Controllers
             return new JsonResult(result);
         }
 
+        [EnableCors] 
         [HttpGet("[action]")]
         public IActionResult GetById(int id)
         {
@@ -60,6 +62,7 @@ namespace SmartTasks.Controllers
             return new JsonResult(result);
         }
 
+        [EnableCors] 
         [HttpPost("[action]")]
         public IActionResult Add([FromBody] SmartTask task)
         {
@@ -70,6 +73,7 @@ namespace SmartTasks.Controllers
             return Ok();
         }
 
+        [EnableCors] 
         [HttpGet("[action]")]
         public IActionResult RemoveById(int id)
         {
