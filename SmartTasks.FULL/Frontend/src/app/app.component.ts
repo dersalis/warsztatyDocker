@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SmartTask, ISmartTask } from './models/smartTask';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +9,15 @@ import { SmartTask, ISmartTask } from './models/smartTask';
 })
 export class AppComponent implements OnInit{
 
-  title = 'Frontend';
+  public tList: ISmartTask[] = [];
 
-  // public taskList: SmartTask[] = [
-  //   new SmartTask(0, 'Malowanie', 'Malowanie ścian w kuchni i przedpokoju', new Date('2020.03.01'), new Date('2020.03.21'), false, 0),
-  //   new SmartTask(1, 'Mycie samochodu', 'Mycie Dacia Duster', new Date('2020.03.04'), new Date('2020.03.18'), false, 1),
-  //   new SmartTask(2, 'Zakupy', 'Zakupy w Biedronka', new Date('2020.03.09'), new Date('2020.03.21'), true, 2),
-  //   new SmartTask(2, 'Piwo', 'Zakupy w browarze', new Date('2020.03.05'), new Date('2020.03.21'), true, 2)
-  // ];
+  constructor(private httpClient: HttpClient) {
+    this.httpClient.get<ISmartTask[]>('http://10.190.1.97:8084/api/Tasks/GetAll').subscribe(response => {
+      this.tList = response;
+    })
+  }
+
+  title = 'Frontend';
 
   public taskList: ISmartTask[] = [
     {
@@ -46,16 +48,6 @@ export class AppComponent implements OnInit{
       status: 2
     }
   ];
-
-  // public newTask: ISmartTask = {
-  //   id: 2,
-  //   name: '',
-  //   descryption: '',
-  //   createDate: new Date('2020.03.04'),
-  //   finishDate: new Date('2020.03.05'),
-  //   isFinish: false,
-  //   status: 0
-  // }
 
   public newTask: ISmartTask;
 

@@ -32,7 +32,7 @@ namespace SmartTasks.Controllers
         };
 
 
-        [HttpPost("[action]")]
+        [HttpGet("[action]")]
         public IActionResult GetAll()
         {
             var result = _tasks;

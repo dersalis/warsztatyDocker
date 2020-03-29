@@ -32,14 +32,14 @@ namespace SmartTasks.Controllers
         };
 
 
-        [HttpPost("[action]")]
+        [HttpGet("[action]")]
         public IActionResult GetAll()
         {
             var result = _tasks;
             return new JsonResult(result);
         }
 
-        [HttpPost("[action]")]
+        [HttpGet("[action]")]
         public IActionResult GetById(int id)
         {
             var result = _tasks.Where(t => t.Id == id);
