@@ -9,46 +9,46 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit{
 
-  public tList: ISmartTask[] = [];
+  public taskList: ISmartTask[] = [];
 
   constructor(private httpClient: HttpClient) {
     this.httpClient.get<ISmartTask[]>('http://10.190.1.97:8080/api/Tasks/GetAll').subscribe(response => {
-      this.tList = response;
-      console.log(this.tList);
+      this.taskList = response;
+      console.log(this.taskList);
     })
   }
 
   title = 'Frontend';
 
-  public taskList: ISmartTask[] = [
-    {
-      id: 0,
-      name: 'Malowanie pokoju',
-      descryption: 'Pomalować duży pokój na zielono',
-      createDate: new Date('2020.03.01'),
-      finishDate: new Date('2020.03.11'),
-      isFinish: false,
-      status: 0
-    },
-    {
-      id: 1,
-      name: 'Koszenie trawy',
-      descryption: 'Skosić trawnik na działce',
-      createDate: new Date('2020.03.05'),
-      finishDate: new Date('2020.03.19'),
-      isFinish: false,
-      status: 1
-    },
-    {
-      id: 2,
-      name: 'Mycie samochodu',
-      descryption: 'Umyć samochód DD2',
-      createDate: new Date('2020.03.04'),
-      finishDate: new Date('2020.03.05'),
-      isFinish: true,
-      status: 2
-    }
-  ];
+  // public taskList: ISmartTask[] = [
+  //   {
+  //     id: 0,
+  //     name: 'Malowanie pokoju',
+  //     descryption: 'Pomalować duży pokój na zielono',
+  //     createDate: new Date('2020.03.01'),
+  //     finishDate: new Date('2020.03.11'),
+  //     isFinish: false,
+  //     status: 0
+  //   },
+  //   {
+  //     id: 1,
+  //     name: 'Koszenie trawy',
+  //     descryption: 'Skosić trawnik na działce',
+  //     createDate: new Date('2020.03.05'),
+  //     finishDate: new Date('2020.03.19'),
+  //     isFinish: false,
+  //     status: 1
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'Mycie samochodu',
+  //     descryption: 'Umyć samochód DD2',
+  //     createDate: new Date('2020.03.04'),
+  //     finishDate: new Date('2020.03.05'),
+  //     isFinish: true,
+  //     status: 2
+  //   }
+  // ];
 
   public newTask: ISmartTask;
 
