@@ -19,8 +19,8 @@ export class AppComponent implements OnInit{
 
   public newTask: ISmartTask;
 
-  private apiUrl: string = 'http://10.190.1.97:8080';
-  // private apiUrl: string = 'localhost:8080';
+  //private apiUrl: string = 'http://10.190.1.97:8080';
+  private apiUrl: string = 'localhost:8080';
 
   ngOnInit(): void {
     console.log("Taki Init");
