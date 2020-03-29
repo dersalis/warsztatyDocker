@@ -18,16 +18,29 @@ namespace SmartTasks.Controllers
             new SmartTask{
                 Id = 0,
                 Name = "Mycie samochodu",
+                Descryption = "Umyś dziś czarne auto",
                 CreateDate = DateTime.Now.AddDays(-7),
                 FinishDate = DateTime.Now,
-                IsFinish = true
+                IsFinish = true,
+                Status = 0
             },
             new SmartTask{
                 Id = 1,
                 Name = "Malowanie ścian",
+                Descryption = "Malowanie ścian w kuchni i pokoju",
                 CreateDate = DateTime.Now.AddDays(-9),
                 FinishDate = null,
-                IsFinish = false
+                IsFinish = false,
+                Status = 1
+            },
+            new SmartTask{
+                Id = 3,
+                Name = "Koszenie trawy",
+                Descryption = "Trawa do skoszenie w ogrodzie",
+                CreateDate = DateTime.Now.AddDays(-9),
+                FinishDate = null,
+                IsFinish = true,
+                Status = 2
             }
         };
 

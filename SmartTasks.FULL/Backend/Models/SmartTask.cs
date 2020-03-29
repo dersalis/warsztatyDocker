@@ -10,8 +10,10 @@ namespace SmartTasks.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Descryption { get; set; }
         public DateTime? CreateDate { get; set; }
         public DateTime? FinishDate { get; set; }
         public bool? IsFinish { get; set; }
+        public int Status { get; set; }
     }
 }

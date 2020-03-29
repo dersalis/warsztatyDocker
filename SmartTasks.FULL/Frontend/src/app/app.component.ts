@@ -12,8 +12,9 @@ export class AppComponent implements OnInit{
   public tList: ISmartTask[] = [];
 
   constructor(private httpClient: HttpClient) {
-    this.httpClient.get<ISmartTask[]>('http://10.190.1.97:8084/api/Tasks/GetAll').subscribe(response => {
+    this.httpClient.get<ISmartTask[]>('http://10.190.1.97:8080/api/Tasks/GetAll').subscribe(response => {
       this.tList = response;
+      console.log(this.tList);
     })
   }
 
