@@ -38,15 +38,16 @@ export class AppComponent implements OnInit{
     this.newTask.finishDate = null;
     console.log(this.newTask);
     //this.taskList.push(this.newTask);
-    this.httpClient.post('http://10.190.1.97:8080/api/Tasks/Add', {
-      Id: this.newTask.id,
-      Name: this.newTask.name,
-      Descryption: this.newTask.descryption,
-      CreateDate: null,
-      FinishDate: null,
-      IsFinish: false,
-      Status: 0
-    }).subscribe();
+    // this.httpClient.post('http://10.190.1.97:8080/api/Tasks/Add', {
+    //   Id: this.newTask.id,
+    //   Name: this.newTask.name,
+    //   Descryption: this.newTask.descryption,
+    //   CreateDate: null,
+    //   FinishDate: null,
+    //   IsFinish: false,
+    //   Status: 0
+    // }).subscribe();
+    this.httpClient.post('http://10.190.1.97:8080/api/Tasks/Add', this.newTask).subscribe();
     this.clearForm();
     this.getTasks();
   }

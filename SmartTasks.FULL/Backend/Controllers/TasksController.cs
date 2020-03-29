@@ -52,10 +52,10 @@ namespace SmartTasks.Controllers
             return new JsonResult(result);
         }
 
-        [HttpPost("[action]")]
+        [HttpGet("[action]")]
         public IActionResult GetById(int id)
         {
-            var result = _tasks.Where(t => t.Id == id);
+            var result = _tasks.FirstOrDefault(t => t.Id == id);
             if(result == null) return NotFound("Nie znaleziono elementu");
             return new JsonResult(result);
         }
@@ -68,6 +68,15 @@ namespace SmartTasks.Controllers
             if(task.FinishDate == null) task.IsFinish = false;
             _tasks.Add(task);
             return Ok();
+        }
+
+        [HttpGet("[action]")]
+        public IActionResult RemoveById(int id)
+        {
+            var result = _tasks.FirstOrDefault(t => t.Id == id);
+            if(result == null) return NotFound("Nie znaleziono elementu");
+            _tasks.Remove(result);
+            return new JsonResult(result);
         }
     }
 }
