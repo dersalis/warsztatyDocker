@@ -1,27 +1,29 @@
 version: "3"
 services:
-    reverse-proxy:
-        build: ./reverse-proxy/.
-        image: coding-militia-docker-reverse-proxy:latest
-        ports:
-            - "5000:80"
-            - "5001:5001"
-        networks:
-        - overlay
-        depends_on:
-            - frontend
+    # reverse-proxy:
+    #     build: ./reverse-proxy/.
+    #     image: coding-militia-docker-reverse-proxy:latest
+    #     ports:
+    #         - "5000:80"
+    #         - "5001:5001"
+    #     networks:
+    #     - overlay
+    #     depends_on:
+    #         - frontend
     frontend:
         build: ./Frontend/.
-        image: coding-militia-docker-frontend:latest
-        networks:
-            - overlay
+        image: frontendimg:latest
+        # networks:
+        #     - overlay
         depends_on:
             - backend
     backend:
         build: ./Backend/.
-        image: coding-militia-docker-backend:latest
-        networks:
-            - overlay
+        image: backendimg:latest
+        ports:
+            - "8000:80"
+        # networks:
+        #     - overlay
         # depends_on:
         #     - postgres-db
     # postgres-db:
@@ -32,5 +34,5 @@ services:
     #         POSTGRES_USER: "user"
     #         POSTGRES_PASSWORD: "pass"
 
-networks:
-  overlay:
+# networks:
+#   overlay:
