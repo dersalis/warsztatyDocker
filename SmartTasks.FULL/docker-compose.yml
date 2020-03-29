@@ -12,7 +12,8 @@ services:
     #         - frontend
     frontend:
         build: ./Frontend/.
-        image: frontendimg:latest
+        image: smarttasks_web:latest
+        container_name: smarttask_web
         # networks:
         #     - overlay
         ports:
@@ -21,7 +22,8 @@ services:
             - backend
     backend:
         build: ./Backend/.
-        image: backendimg:latest
+        image: smarttasks_api:latest
+        container_name: smarttasks_api
         ports:
             - "8080:80"
         # networks:
