@@ -10,3 +10,4 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS final
 WORKDIR /app
 COPY --from=build /app .
 ENTRYPOINT ["dotnet", "SmartTasks.dll"]
+EXPOSE 80
