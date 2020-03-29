@@ -19,8 +19,9 @@ export class AppComponent implements OnInit{
 
   public newTask: ISmartTask;
 
-  //private apiUrl: string = 'http://10.190.1.97:8080';
-  private apiUrl: string = 'localhost:8080';
+  //private apiUrl: string = 'http://10.190.1.97:8080/';
+  //private apiUrl: string = 'localhost:8080/';
+  private apiUrl: string = '';
 
   ngOnInit(): void {
     console.log("Taki Init");
@@ -29,7 +30,7 @@ export class AppComponent implements OnInit{
   }
 
   public getTasks(): void {
-    this.httpClient.get<ISmartTask[]>(`${this.apiUrl}/api/Tasks/GetAll`).subscribe(response => {
+    this.httpClient.get<ISmartTask[]>(`${this.apiUrl}api/Tasks/GetAll`).subscribe(response => {
       this.taskList = response;
       console.log(this.taskList);
     });
@@ -40,7 +41,7 @@ export class AppComponent implements OnInit{
     this.newTask.id = this.taskList.length + 1;
     this.newTask.finishDate = null;
     console.log(this.newTask);
-    this.httpClient.post(`${this.apiUrl}/api/Tasks/Add`, this.newTask).subscribe(() => {
+    this.httpClient.post(`${this.apiUrl}api/Tasks/Add`, this.newTask).subscribe(() => {
       this.getTasks();
     });
     this.clearForm();
@@ -50,7 +51,7 @@ export class AppComponent implements OnInit{
   public removeTask(item: ISmartTask): void {
     console.log('Usuń zadanie');
     console.log(item);
-    this.httpClient.get(`${this.apiUrl}/api/Tasks/RemoveById?id=${item.id}`).subscribe(() => {
+    this.httpClient.get(`${this.apiUrl}api/Tasks/RemoveById?id=${item.id}`).subscribe(() => {
           this.getTasks();
         });
     // const index: number = this.taskList.indexOf(item);
