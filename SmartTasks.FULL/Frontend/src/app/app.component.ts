@@ -12,57 +12,43 @@ export class AppComponent implements OnInit{
   public taskList: ISmartTask[] = [];
 
   constructor(private httpClient: HttpClient) {
-    this.httpClient.get<ISmartTask[]>('http://10.190.1.97:8080/api/Tasks/GetAll').subscribe(response => {
-      this.taskList = response;
-      console.log(this.taskList);
-    })
+
   }
 
   title = 'Frontend';
-
-  // public taskList: ISmartTask[] = [
-  //   {
-  //     id: 0,
-  //     name: 'Malowanie pokoju',
-  //     descryption: 'Pomalować duży pokój na zielono',
-  //     createDate: new Date('2020.03.01'),
-  //     finishDate: new Date('2020.03.11'),
-  //     isFinish: false,
-  //     status: 0
-  //   },
-  //   {
-  //     id: 1,
-  //     name: 'Koszenie trawy',
-  //     descryption: 'Skosić trawnik na działce',
-  //     createDate: new Date('2020.03.05'),
-  //     finishDate: new Date('2020.03.19'),
-  //     isFinish: false,
-  //     status: 1
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'Mycie samochodu',
-  //     descryption: 'Umyć samochód DD2',
-  //     createDate: new Date('2020.03.04'),
-  //     finishDate: new Date('2020.03.05'),
-  //     isFinish: true,
-  //     status: 2
-  //   }
-  // ];
 
   public newTask: ISmartTask;
 
   ngOnInit(): void {
     console.log("Taki Init");
-    console.log(this.taskList);
+    this.getTasks();
     this.clearForm();
+  }
+
+  public getTasks(): void {
+    this.httpClient.get<ISmartTask[]>('http://10.190.1.97:8080/api/Tasks/GetAll').subscribe(response => {
+      this.taskList = response;
+      console.log(this.taskList);
+    });
   }
 
   public addTask(): void {
     console.log('Dodaj zadanie!');
+    this.newTask.id = this.taskList.length + 1;
+    this.newTask.finishDate = null;
     console.log(this.newTask);
-    this.taskList.push(this.newTask);
+    //this.taskList.push(this.newTask);
+    this.httpClient.post('http://10.190.1.97:8080/api/Tasks/Add', {
+      Id: this.newTask.id,
+      Name: this.newTask.name,
+      Descryption: this.newTask.descryption,
+      CreateDate: null,
+      FinishDate: null,
+      IsFinish: false,
+      Status: 0
+    }).subscribe();
     this.clearForm();
+    this.getTasks();
   }
 
   public removeTask(item: ISmartTask): void {

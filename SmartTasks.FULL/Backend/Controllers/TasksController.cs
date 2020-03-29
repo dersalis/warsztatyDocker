@@ -61,7 +61,7 @@ namespace SmartTasks.Controllers
         }
 
         [HttpPost("[action]")]
-        public IActionResult Add([FromForm] SmartTask task)
+        public IActionResult Add([FromBody] SmartTask task)
         {
             if(task == null) return BadRequest();
             if(task.CreateDate == null) task.CreateDate = DateTime.Now;
