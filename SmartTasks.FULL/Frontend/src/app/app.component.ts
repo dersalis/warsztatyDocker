@@ -20,7 +20,7 @@ export class AppComponent implements OnInit{
   public newTask: ISmartTask;
 
   //private apiUrl: string = 'http://10.190.1.97:8080/';
-  private apiUrl: string = 'http://0.0.0.0:80/';
+  private apiUrl: string = 'http://127.0.0.1:80/';
   //private apiUrl: string = '';
 
   ngOnInit(): void {

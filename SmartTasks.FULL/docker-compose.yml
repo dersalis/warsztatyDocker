@@ -24,6 +24,8 @@ services:
         build: ./Backend/.
         image: smarttasks_api:latest
         container_name: smarttasks_api
+        expose:
+            - "80"
         ports:
             - "8080:80"
         # networks:
